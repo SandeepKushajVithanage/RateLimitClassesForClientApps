@@ -6,7 +6,6 @@ class PromiseRateLimit {
   }
 
   call = (promiseId, callback, params, timeGap = DEFAULT_RATE_LIMIT) => {
-    console.log(`${params[0]} Promise called at ${new Date().toISOString()}`);
     let request;
     const index = this.promises.findIndex(
       (item) => item.promiseId === promiseId
