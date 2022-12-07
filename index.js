@@ -1,4 +1,5 @@
 const PromiseRateLimit = require("./PromiseRateLimit");
+const RateLimit = require("./RateLimit");
 const PromiseQueue = require("./PromiseQueue");
 const PromiseRLQueue = require("./PromiseRLQueue");
 
@@ -17,9 +18,10 @@ const snooze = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const testPromise = async () => {
   for (let index = 0; index < 100; index++) {
-    // PromiseRateLimit.call("uniqueIdForPromise", promise, [index])
-    // PromiseQueue.call(promise, [index])
-    PromiseRLQueue.call(promise, [index])
+    RateLimit.call("uniqueIdForPromise", promise, [index])
+      // PromiseRateLimit.call("uniqueIdForPromise", promise, [index])
+      // PromiseQueue.call(promise, [index])
+      // PromiseRLQueue.call(promise, [index])
       .then(console.log)
       .catch((error) => console.log(error.message));
 
